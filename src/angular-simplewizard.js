@@ -44,15 +44,22 @@ angular.module('simpleWizard', []).directive('wizard', function() {
       };
 
 
-      $scope.wizardNext = function(data) {
-        data = data || {};
-        Object.keys(data).forEach(function(e) {
-          $scope.model[e] = data[e];
-        });
+      $scope.wizardNext = function() {
         var step = $scope.template[$scope.step];
         if (typeof step.next === 'function') {
           $scope.step = step.next($scope.model);
         }
+      };
+
+
+      $scope.wizardSubmit = function(data) {
+        var step = $scope.template[$scope.step];
+        if (typeof step.validate === 'function') {
+          if (!step.validate($scope.model)) {
+            return;
+          }
+        }
+        $scope.wizardNext();
       };
 
 
