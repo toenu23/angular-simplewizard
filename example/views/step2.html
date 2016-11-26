@@ -1,0 +1,24 @@
+<form name="forms.wizard" ng-submit="wizardNext()" novalidate>
+
+  <div class="form-group">
+    <label>Another text field</label>
+    <input type="text" class="form-control" name="text" ng-model="model.text" />
+  </div>
+
+  <div class="radio">
+    <label>
+      <input type="radio" name="gotoStep3" value="3a" ng-model="model.goToStep3" checked>
+      Go to step 3a
+    </label>
+  </div>
+  <div class="radio">
+    <label>
+      <input type="radio" name="gotoStep3" value="3b" ng-model="model.goToStep3">
+      Go to step 3b
+    </label>
+  </div>
+
+  <button class="btn btn-default" type="button" ng-click="wizardBack()">Back</button>
+  <button class="btn btn-default" type="submit">Continue</button>
+
+</form>

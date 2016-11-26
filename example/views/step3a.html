@@ -1,0 +1,19 @@
+<form name="forms.wizard" ng-submit="wizardNext()" novalidate>
+
+  <div class="form-group">
+    <label>Your shoe size</label>
+    <input type="text" class="form-control" name="text" ng-model="model.shoeSize" />
+  </div>
+
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" value="" name="goToStep3b" ng-model="model.goToStep3b">
+      Go to step 3b before finishing the wizard
+    </label>
+  </div>
+
+  <button class="btn btn-default" type="button" ng-click="wizardGoTo('step1')">Go to step 1</button>
+  <button class="btn btn-default" type="button" ng-click="wizardBack()">Back</button>
+  <button class="btn btn-default" type="submit">Continue</button>
+
+</form>

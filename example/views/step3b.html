@@ -1,0 +1,12 @@
+<form name="forms.wizard" ng-submit="wizardNext()" novalidate>
+
+  <label>Select something</label>
+  <select class="form-control" name="something" ng-model="model.something">
+    <option value="deadend">Go to dead-end</option>
+    <option value="finish">Finish wizard</option>
+  </select>
+
+  <button class="btn btn-default" type="button" ng-click="wizardBack()">Back</button>
+  <button class="btn btn-default" type="submit">Continue</button>
+
+</form>

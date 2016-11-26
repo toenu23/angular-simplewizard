@@ -1,0 +1,8 @@
+<p>Congratulations, you have finished the wizard.</p>
+
+<p>The form model now contains the following data:</p>
+
+<textarea rows="8" disabled="disabled" class="form-control">{{ model | json }}</textarea>
+
+<button class="btn btn-default" type="button" ng-click="wizardBack()">Back</button>
+<button class="btn btn-default" type="button" ng-click="wizardReset()">Reset wizard and start over</button>
