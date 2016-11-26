@@ -1,5 +1,5 @@
 ## angular-simplewizard
-A simple wizard directive for angular.js (who would have thought?)
+A simple wizard directive for angular.js
 
 It's easy to use and fully customize-able and allows you to setup complex multi-step forms with diverging/converging branches.
 
@@ -49,12 +49,7 @@ A template may look something like this: (See example for more details)
         view: 'views/account.html',
         prev: 'product',
         next: function(model) {
-          // 'model' contains data from all steps
-          if (model.type === 'ebook') {
-            return 'payment';
-          } else {
-            return 'shipping';
-          }
+          return (model.type === 'ebook') ? 'payment' : 'shipping';
         },
         validate: function(model) {
           // 'model' contains data from all steps
@@ -81,7 +76,7 @@ A template may look something like this: (See example for more details)
 The following functions are exposed to the scope and available in your view files:
 
 
-- `wizardSubmit()` Submit the current step. The wizard will perform validation and navigate to the next step if successful. Ideally, this function is given as the `ng-submit`parameter of the form.
+- `wizardSubmit()` Submit the current step. The wizard will perform validation and navigate to the next step if successful. Ideally, this function is given as the `ng-submit` parameter of the form.
 
 - `wizardBack([toReset])` Navigate to the previous step. The optional parameter `toReset` (Array) contains the names of keys of the model to reset to their inital state. This may be necessary if the user navigates back multiple steps.
 
