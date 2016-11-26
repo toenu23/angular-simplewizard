@@ -32,10 +32,10 @@ angular.module('simpleWizard', []).directive('wizard', function() {
       };
 
 
-      $scope.wizardBack = function(toDelete) {
-        toDelete = toDelete ||  [];
-        toDelete.forEach(function(e) {
-          delete $scope.model[e];
+      $scope.wizardBack = function(toReset) {
+        toReset = toReset ||  [];
+        toReset.forEach(function(e) {
+          $scope.model[e] = _model[e] || undefined;
         });
         var step = $scope.template[$scope.step];
         $scope.step = (typeof step.prev === 'function')
