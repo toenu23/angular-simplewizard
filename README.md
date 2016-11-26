@@ -1,4 +1,5 @@
-**angular-simplewizard** is a simple wizard directive for angular.js (who would have thought?)
+## angular-simplewizard
+A simple wizard directive for angular.js (who would have thought?)
 
 It's easy to use and fully customize-able and allows you to setup complex multi-step forms with diverging/converging branches.
 
@@ -31,38 +32,41 @@ The initial step from which the wizard begins. If not specified, the first eleme
  A step is identified by its object key and has the following parameters:
 
 
-   - `view`: [string] URL to the template (required)
-   - `prev` and `next`: [string or function] The name of the previous and next step, or a function returning it.
-   - `validate`: [function] Custom validation function
+  - `view`: [string] URL to the template (required)
+  - `prev` and `next`: [string or function] The name of the previous and next step, or a function returning it.
+  - `validate`: [function] Custom validation function
 
 A template may look something like this: (See example for more details)
 
 
-
     $scope.wizardTmpl = {
+    
       product: {
-    	...
+      ...
       },
+    
       account: {
         view: 'views/account.html',
         prev: 'product',
         next: function(model) {
-	      // 'model' contains data from all steps
-	      if(model.type === 'ebook') {
-	        return 'payment';
-	      } else {
-			return 'shipping';
-		  }
+          // 'model' contains data from all steps
+          if (model.type === 'ebook') {
+            return 'payment';
+          } else {
+            return 'shipping';
+          }
         },
         validate: function(model) {
           // 'model' contains data from all steps
           // Do some validation
           return true;
-		},
+        },
       },
+    
       shipping: {
-	    ...
+        ...
       },
+
       payment: {
         ...
       },
@@ -71,7 +75,12 @@ A template may look something like this: (See example for more details)
 
     };
 
-In your view files, the follwing functions are available:
+
+
+
+In your view files, the following functions are available:
+
+
 `wizardSubmit()`: Submit the current step. The wizard will perform validation and navigate to the next step if successful. Ideally, this function is given as the `ng-submit`parameter of the form.
 
 `wizardBack([toReset])`: Navigate to the previous step. The optional parameter `toReset` (Array) contains the names of keys of the model to reset to their inital state. This may be necessary if the user navigates back multiple steps.
