@@ -33,7 +33,6 @@ angular.module('simpleWizard', []).directive('wizard', function() {
 
 
       $scope.wizardBack = function(toDelete) {
-        console.log($scope.model)
         toDelete = toDelete ||  [];
         toDelete.forEach(function(e) {
           delete $scope.model[e];
