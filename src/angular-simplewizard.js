@@ -38,17 +38,17 @@ angular.module('simpleWizard', []).directive('wizard', function() {
           delete $scope.model[e];
         });
         var step = $scope.template[$scope.step];
-        if (typeof step.prev === 'function') {
-          $scope.step = step.prev($scope.model);
-        }
+        $scope.step = (typeof step.prev === 'function')
+          ? step.prev($scope.model)
+          : step.prev;
       };
 
 
       $scope.wizardNext = function() {
         var step = $scope.template[$scope.step];
-        if (typeof step.next === 'function') {
-          $scope.step = step.next($scope.model);
-        }
+        $scope.step = (typeof step.next === 'function')
+          ? step.next($scope.model)
+          : step.next;
       };
 
 
