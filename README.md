@@ -32,9 +32,9 @@ The initial step from which the wizard begins. If not specified, the first eleme
  A step is identified by its object key and has the following parameters:
 
 
-  - `view`: [string] URL to the template (required)
-  - `prev` and `next`: [string or function] The name of the previous and next step, or a function returning it.
-  - `validate`: [function] Custom validation function
+  - `view` [string] URL to the template (required)
+  - `prev` and `next` [string or function] The name of the previous and next step, or a function returning it.
+  - `validate` [function] Custom validation function
 
 A template may look something like this: (See example for more details)
 
@@ -78,18 +78,18 @@ A template may look something like this: (See example for more details)
 
 
 
-In your view files, the following functions are available:
+The following functions are exposed to the scope and available in your view files:
 
 
-`wizardSubmit()`: Submit the current step. The wizard will perform validation and navigate to the next step if successful. Ideally, this function is given as the `ng-submit`parameter of the form.
+- `wizardSubmit()` Submit the current step. The wizard will perform validation and navigate to the next step if successful. Ideally, this function is given as the `ng-submit`parameter of the form.
 
-`wizardBack([toReset])`: Navigate to the previous step. The optional parameter `toReset` (Array) contains the names of keys of the model to reset to their inital state. This may be necessary if the user navigates back multiple steps.
+- `wizardBack([toReset])` Navigate to the previous step. The optional parameter `toReset` (Array) contains the names of keys of the model to reset to their inital state. This may be necessary if the user navigates back multiple steps.
 
-`wizardNext()`: Go to the next step without validation
+- `wizardNext()` Go to the next step without validation
 
-`wizardGoTo(step)`: Go to any step defined in the template
+- `wizardGoTo(step)` Go to any step defined in the template
 
-`wizardReset()`: Completely reset the wizard and return to the inital step
+- `wizardReset()` Completely reset the wizard and return to the inital step
 
 ### Demo ###
 To do
