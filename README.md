@@ -29,7 +29,7 @@ You may now use the `wizard` directive:
 The `<wizard>` directive has the following attributes:
 
 ### `model`
-The variable to be populated with the results of the wizard
+The variable to be populated with the results of the wizard. It becomes available in the scope as "`model`" and its elements can be given as the ng-model parameter of each field.
 
 ### `step` (optional)
 The initial step from which the wizard begins. If not specified, the first element in the `template` object is the initial step.
