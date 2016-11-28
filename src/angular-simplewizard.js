@@ -4,58 +4,59 @@ angular.module('simpleWizard', []).directive('wizard', function() {
 
     restrict: 'E',
 
-    scope: {
-      template: '=',
-      model: '=',
-      step: '=?',
-    },
-
     template: '<ng-include src="getViewUrl()"/>',
 
 
-    controller: function($scope) {
+    controller: function($scope, $attrs) {
+
+
+      var wizard = {
+        template: $scope[$attrs.template],
+        model: $scope[$attrs.model],
+        step: $attrs.step,
+      };
 
 
       // Save step and model in original state so we can
       // reset the entire wizard
-      var _model = angular.copy($scope.model);
-      var _step = angular.copy($scope.step);
+      var _model = angular.copy(wizard.model);
+      var _step = angular.copy(wizard.step);
 
 
       $scope.getViewUrl = function() {
         // Use first element in template if step not specified
         // or doesn't exist
-        if (!$scope.step || !$scope.template[$scope.step]) {
-          $scope.step = Object.keys($scope.template)[0];
+        if (!wizard.step || !wizard.template[wizard.step]) {
+          wizard.step = Object.keys(wizard.template)[0];
         }
-        return $scope.template[$scope.step].view;
+        return wizard.template[wizard.step].view;
       };
 
 
       $scope.wizardBack = function(toReset) {
         toReset = toReset ||  [];
         toReset.forEach(function(e) {
-          $scope.model[e] = _model[e] || undefined;
+          wizard.model[e] = _model[e] || undefined;
         });
-        var step = $scope.template[$scope.step];
-        $scope.step = (typeof step.prev === 'function')
-          ? step.prev($scope.model)
+        var step = wizard.template[wizard.step];
+        wizard.step = (typeof step.prev === 'function')
+          ? step.prev(wizard.model)
           : step.prev;
       };
 
 
       $scope.wizardNext = function() {
-        var step = $scope.template[$scope.step];
-        $scope.step = (typeof step.next === 'function')
-          ? step.next($scope.model)
+        var step = wizard.template[wizard.step];
+        wizard.step = (typeof step.next === 'function')
+          ? step.next(wizard.model)
           : step.next;
       };
 
 
       $scope.wizardSubmit = function(data) {
-        var step = $scope.template[$scope.step];
+        var step = wizard.template[wizard.step];
         if (typeof step.validate === 'function') {
-          if (!step.validate($scope.model)) {
+          if (!step.validate(wizard.model)) {
             return;
           }
         }
@@ -64,14 +65,14 @@ angular.module('simpleWizard', []).directive('wizard', function() {
 
 
       $scope.wizardReset = function() {
-        $scope.model = _model;
-        $scope.step = _step || Object.keys($scope.template)[0];
+        wizard.model = _model;
+        wizard.step = _step || Object.keys(wizard.template)[0];
       };
 
 
       $scope.wizardGoTo = function(step) {
-        if ($scope.template[step]) {
-          $scope.step = step;
+        if (wizard.template[step]) {
+          wizard.step = step;
         }
       };
 
