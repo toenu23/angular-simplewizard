@@ -13,7 +13,7 @@ angular.module('simpleWizard', []).directive('wizard', function() {
       var wizard = {
         template: $scope[$attrs.template],
         model: $scope[$attrs.model],
-        step: $attrs.step,
+        step: $scope[$attrs.step],
       };
 
 
