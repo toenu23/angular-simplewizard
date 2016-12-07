@@ -1,12 +1,17 @@
-<form name="forms.wizard" ng-submit="wizardNext()" novalidate>
+<form name="forms.wizard.step3b" ng-submit="wizardSubmit()" novalidate>
 
-  <label>Select something</label>
-  <select class="form-control" name="something" ng-model="model.something">
-    <option value="deadend">Go to dead-end</option>
-    <option value="finish">Finish wizard</option>
-  </select>
+  <div class="form-group">
+	  <label>Select something</label>
+	  <select class="form-control" name="something" required
+	  		   ng-model="wizard.something"
+	  		   ng-init="wizard.something = wizard.something || 'deadend'">
+	    <option value="deadend">Go to dead-end</option>
+	    <option value="finish">Finish wizard</option>
+	  </select>
+  </div>
 
-  <button class="btn btn-default" type="button" ng-click="wizardBack()">Back</button>
-  <button class="btn btn-default" type="submit">Continue</button>
+  <button class="btn btn-default" type="button" ng-click="wizardBack(['something'])">Back</button>
+  <button class="btn btn-default" type="submit"
+  		  ng-disabled="forms.wizard.step3b.$invalid">Continue</button>
 
 </form>
