@@ -5,6 +5,18 @@ permalink: /docs/
 ---
 
 ## Installation ##
+Install via NPM ...
+
+    npm install angular-simplewizard
+
+... or install via bower ...
+
+    bower install angular-simplewizard
+
+... or clone the repo
+
+    git clone https://github.com/toenu23/angular-simplewizard
+
 Include the library in your HTML file
 
     <script src="angular-simplewizard.js"></script>
