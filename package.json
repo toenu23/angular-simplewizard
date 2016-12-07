@@ -1,0 +1,28 @@
+{
+  "name": "angular-simplewizard",
+  "version": "0.1.0",
+  "description": "Simple multi-step form (wizard) directive for angular.js",
+  "main": "src/angular-simplewizard.js",
+  "directories": {
+    "doc": "docs",
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toenu23/angular-simplewizard.git"
+  },
+  "keywords": [
+    "angular",
+    "wizard",
+    "form"
+  ],
+  "author": "toenu <toenu23@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/toenu23/angular-simplewizard/issues"
+  },
+  "homepage": "https://github.com/toenu23/angular-simplewizard#readme"
+}
