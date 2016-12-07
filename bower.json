@@ -1,0 +1,22 @@
+{
+  "name": "angular-simplewizard",
+  "description": "Simple multi-step form (wizard) directive for angular.js",
+  "main": "src/angular-simplewizard.js",
+  "authors": [
+    "toenu <toenu23@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "wizard",
+    "form"
+  ],
+  "homepage": "https://toenu23.github.io/angular-simplewizard/",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
