@@ -65,7 +65,7 @@ angular.module('simpleWizard', []).directive('wizard', function() {
 
 
       $scope.wizardReset = function() {
-        wizard.model = _model;
+        $scope[$attrs.model] = _model;
         wizard.step = _step || Object.keys(wizard.template)[0];
       };
 
