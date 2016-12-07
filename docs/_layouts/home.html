@@ -1,0 +1,49 @@
+---
+layout: default
+---
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+<script src="./assets/angular-simplewizard.js"></script>
+<script src="./assets/app.js"></script>
+
+
+<div class="home">
+
+  <p>A simple wizard directive for angular.js</p>
+  <ul>
+    <li>Fully customize-able</li>
+    <li>Easy to use</li>
+    <li>Make complex multi-step forms with diverging / converging branches</li>
+  </ul>
+
+<hr />
+  <div class="panel panel-default" ng-app="App">
+    <div class="panel-heading">
+      <h3 class="panel-title">Demo</h3>
+    </div>
+    <div class="panel-body" ng-controller="MainCtrl">
+
+      <wizard model="wizard" template="wizardTmpl"></wizard>
+
+    </div>
+  </div>
+
+  <h1 class="page-heading">Changelog</h1>
+  
+  {{ content }}
+
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+
+        <h2>
+          <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+
+</div>
